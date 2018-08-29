@@ -66,6 +66,8 @@ daily_steps <- data %>% group_by(date) %>% summarise(total_daily_steps = sum(ste
 ggplot(daily_steps, aes(x = total_daily_steps)) +
   geom_histogram()
 ```
+![](figures/plot1.png)
+
 
 It´s always useful to look at central tendency measures, like the mean and median. As we are looking at daily steps, the mean and median steps per day is:
 
@@ -83,6 +85,7 @@ mean_per_interval <- data %>% group_by(interval) %>% summarise(mean = mean(steps
 ggplot(mean_per_interval, aes(x = interval, y = mean)) +
   geom_line()
 ```
+![](figures/plot2.png)
 
 To see which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps:
 
@@ -126,6 +129,7 @@ ggplot(daily_steps2, aes(x = total_daily_steps)) +
 mean(daily_steps2$total_daily_steps, na.rm = T)
 median(daily_steps2$total_daily_steps, na.rm = T)
 ```
+![](figures/plot3.png)
 
 We can see that the distribution barely changed, and with more complete data, a greated range of statistical methods can be applied in the dataset for further analysis.
 
@@ -143,5 +147,6 @@ ggplot(mean_per_interval2, aes(x = interval, y = mean)) +
   geom_line() + 
     facet_grid( day_of_week ~ .)
 ```
+![](figures/plot4.png)
 
 It is now visible the differences of mean steps taken in each part of the day, during weekdays and weekends.
